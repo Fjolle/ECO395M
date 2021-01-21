@@ -1,0 +1,55 @@
+---
+title: "FirstRmarkdown"
+author: "ME"
+date: "21 January 2021"
+output: html_document
+---
+
+```{r}
+    ##(a)
+Pcomp=lm(GasPrices$Price~GasPrices$Competitors) # TRUE
+summary(Pcomp)
+boxplot(Price~Competitors,data=GasPrices)
+```
+
+```{r}
+    ##(b)
+Rich=lm(GasPrices$Price~GasPrices$Income)  ##TRUE
+summary(Rich)
+
+plot(GasPrices$Price,GasPrices$Income)
+abline(Rich, col="red")
+
+cor(Price,Income)
+```
+
+```{r}
+    ##(c)
+
+Shellmore=lm(GasPrices$Price~GasPrices$Brand)
+summary(Shellmore)
+
+counts <- table(GasPrices$Price, GasPrices$Brand)
+barplot(counts, main="Brand", horiz=FALSE) ###???????TRUE?????????
+
+```
+
+```{r}
+    ##(d)
+
+Stopligh=lm(GasPrices$Price~GasPrices$Stoplight)
+summary(Stopligh)
+
+qplot(x = Stoplight, data = GasPrices) + facet_wrap(~Stoplight) #####??????   FALSE
+
+boxplot(Price~Stoplight,data=GasPrices)
+
+```
+
+```{r}
+    ##(e)
+
+dirhigh=lm(GasPrices$Price~GasPrices$Highway)
+summary(dirhigh)
+boxplot(Price~Highway,data=GasPrices)    #### TRUE
+```
